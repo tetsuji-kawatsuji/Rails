@@ -10,4 +10,4 @@ Rails
 [Finish] 3-11
 
 [Finish] 4-1
-[Start] 4-2
+[Finish] 4-2
