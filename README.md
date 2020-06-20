@@ -16,4 +16,8 @@ Rails
 [Finish] 4-5
 [Finish] 4-6
 [Finish] 4-7
-[Start] 4-8
+[Finish] 4-8
+
+[Finish] 5-2
+[Finish] 5-3
+[Start] 5-4
