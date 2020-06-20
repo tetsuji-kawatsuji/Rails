@@ -20,4 +20,4 @@ Rails
 
 [Finish] 5-2
 [Finish] 5-3
-[Start] 5-4
+[Finish] 5-4
