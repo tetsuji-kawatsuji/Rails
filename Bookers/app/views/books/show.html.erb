@@ -1,11 +1,11 @@
 <% if flash[:notice] %>
-<p><%= flash[:notice] %></p>
+    <p id='notice'><%= flash[:notice] %></p>
 <% end %>
 
 <p><b>Title: </b><%= @book.title %></p>
 <p><b>Body: </b><%= @book.body %></p>
 
-<p><%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", books_path %><p>
+<%= link_to "Edit", edit_book_path(@book.id), :class => "edit_#{@book.id}" %> | <%= link_to "Back", books_path, :class => "back" %>
 
 <%#
 <%= link_to "Edit", edit_book_path(@book.id) %

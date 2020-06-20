@@ -4,16 +4,11 @@ class BooksController < ApplicationController
 
   end
 
-  def new
-    @book = Book.new
-  end
-
   def create
     @books = Book.all
     @book = Book.new(book_params)
     if @book.save
-      flash[:notice] = 'Book was successfully created.'
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id), notice: 'Book was successfully created.'
     else
       render action: 'index'
     end
@@ -26,8 +21,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    before_uri = URI.parse(request.referer)
-    @path = Rails.application.routes.recognize_path(before_uri.path)
   end
 
   def edit
@@ -38,8 +31,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = 'Book was successfully updated.'
-      redirect_to book_path(@book.id)
+       redirect_to book_path(@book.id), notice: 'Book was successfully updated.'
     else
       render action: 'edit'
     end
@@ -49,8 +41,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.find(params[:id])
     if @book.destroy
-      flash[:notice] = 'Book was successfully destroyed.'
-      redirect_to books_path
+      redirect_to books_path, notice: 'Book was successfully destroyed.'
     else
       render action: 'index'
     end
