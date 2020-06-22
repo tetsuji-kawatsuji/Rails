@@ -4,7 +4,7 @@
       <div class="col-lg-4"> 
         <p id="notice"><%= notice %></p>
         <h2>User info</h2>
-        <%= link_to "Edit", edit_user_path %>
+        <%= link_to "Edit", edit_user_path(@user.id) %>
         <h2>New book</h2>
         <!-- form_for部分 -->
         <%= form_for(@book, url: '/books') do |f| %>
