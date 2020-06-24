@@ -4,7 +4,8 @@
       <div class="col-lg-4">
         <p id="notice"><%= notice %></p>
         <h2>User info</h2>
-        <%= link_to "Edit", edit_user_path(@user.id) %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%><br>
+        <%= link_to "Edit", edit_user_path(@user.id) %><br>
         <h2>New book</h2>
         <!-- form_for部分 -->
         <%= form_for(@book, url: '/books') do |f| %>
@@ -20,12 +21,12 @@
             </div>
             <% end %>
             <div class="field">
-                <%= f.label :title, :class => 'book_title' %>
+                <%= f.label :title, :class => 'book_title' %><br>
                 <%= f.text_field :title, :class => 'book_title' %>
             </div>
             <div class="field">
-                <%= f.label :opinion, :class => 'opinion_body' %>
-                <%= f.text_area :opinion, :class => 'opinion_body' %>
+                <%= f.label :opinion, :class => 'book_opinion' %><br>
+                <%= f.text_area :opinion, :class => 'book_opinion' %>
             </div>
             <div class="actions">
                 <%= f.submit 'Create Book' %>
