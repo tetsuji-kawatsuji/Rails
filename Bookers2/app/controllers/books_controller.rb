@@ -12,6 +12,7 @@ class BooksController < ApplicationController
       @user = current_user
       @books = Book.all
       @book = Book.new(book_params)
+      @fuser = User.find_by(id: @book.user_id)
       if @book.save
         redirect_to book_path(@book.id), notice: 'Book was successfully created.'
       else

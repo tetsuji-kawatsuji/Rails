@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:sign_in, :sign_up, :index, :show, :edit, :update]
   resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy]
 
-  get "home/about" => "books#about"
+  get 'home/about' => 'books#about'
+  post 'books/:id' => 'books#show', as: 'show_book'
 
 end
