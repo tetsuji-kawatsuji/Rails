@@ -16,8 +16,12 @@
           <tbody>
             <% @books.each do |book| %>
               <tr>
-                <td><%= book.title %></td>
-                <td><%= book.opinion %></td>
+                <% if book.user_id = params[:id] %>
+                  <td><%= book.title %></td>
+                  <td><%= book.body %></td>
+                  <td><%= book.user_id %></td>
+                  <td><%= params[:id] %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

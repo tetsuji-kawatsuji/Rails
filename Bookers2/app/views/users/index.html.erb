@@ -1,5 +1,6 @@
 
   <div class="container">
+    <%= render :partial => "books/bookerr" %>
     <div class="row">
 
       <%= render :partial => "sidebar" %>
@@ -18,7 +19,7 @@
           <tbody>
             <% @users.each do |user| %>
               <tr>
-                <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", size:'30x30' %></td>
+                <td><%= attachment_image_tag user, :profile_image, :fill, 30, 30, class: "pull-left profile-thumb", fallback: "no_image.jpg", size:'30x30' %></td>
                 <td><%= user.name %></td>
                 <td><%= link_to 'Show', user %></td>
               </tr>

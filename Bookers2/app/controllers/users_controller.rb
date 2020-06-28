@@ -24,13 +24,16 @@ class UsersController < ApplicationController
     @user = current_user
     @books = Book.all
     @book = Book.new(book_params)
+    @fuser = User.find_by(id: @book.user_id)
   end
 
   def edit
     @user = current_user
+    @book = Book.new(book_params)
   end
 
   def update
+    @book = Book.new(book_params)
     @user = current_user
     if @user.update(user_params)
         redirect_to user_path(@user.id), notice: 'User was successfully updated.'
@@ -44,6 +47,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
   def book_params
-    params.permit(:title, :opinion)
+    params.permit(:title, :body)
   end
 end
