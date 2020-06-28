@@ -32,7 +32,7 @@
                 <% end %>
               </tr>
               <tr>
-                <td><%= link_to User.find_by(id: book.user_id).name, user_path(User.find_by(id: book.user_id).id), :class => "show_#{@user.id}" %></td>
+                <td><%= link_to @fuser.name, user_path(@fuser.id), :class => "show_#{@fuser.id}" %></td>
                 <td></td>
                 <td></td>
                 <td></td>
