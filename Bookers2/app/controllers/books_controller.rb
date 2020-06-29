@@ -31,7 +31,6 @@ class BooksController < ApplicationController
       @user = current_user
       @books = Book.all
       @book = Book.find(params[:id])
-      @fuser = User.find_by(id: @book.user_id)
     end
 
     def edit

@@ -10,15 +10,15 @@
         <!-- form_for部分 -->
         <%= form_for(@book, url: book_path(@book.id)) do |f| %>
 
-            <div class="field">
+            <div class="field row">
                 <%= f.label :title, :class => 'book_title' %><br>
                 <%= f.text_field :title, :class => 'col-xs-12 book_title' %>
             </div>
-            <div class="field">
+            <div class="field row">
                 <%= f.label :opinion, :class => 'book_body' %><br>
                 <%= f.text_area :body, :class => 'col-xs-12 book_body' %>
             </div>
-            <div class="actions">
+            <div class="actions row">
                 <%= f.submit 'Update Book', :class => 'btn btn-primary btn-block' %>
             </div>
             <%= link_to "Show", book_path(@book.id), :class => "show_#{@book.id}" %> |

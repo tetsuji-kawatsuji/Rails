@@ -14,12 +14,10 @@
               <th></th>
               <th></th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             <% @books.each do |book| %>
-              book.user_id=<%= book.user_id %>,@user.id=<%= @user.id %>
               <% if book.user_id == @user.id %>
                 <tr>
                   <td><%= attachment_image_tag @user, :profile_image, :fill, 80, 80, class: "pull-left profile-thumb", fallback: "no_image.jpg" , size:'80x80' %></td>
@@ -29,8 +27,7 @@
                   <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are You Sure?", :class => "destroy_#{book.id} btn btn-danger" %></td>
                 </tr>
                 <tr>
-                  <td><%= link_to User.find_by(id: book.user_id), user_path(book.user_id), :class => "show_#{book.user_id}" %></td>
-                  <td></td>
+                  <td><%= link_to User.find_by(id: book.user_id).name, user_path(book.user_id), :class => "show_#{book.user_id}" %></td>
                   <td></td>
                   <td></td>
                   <td></td>

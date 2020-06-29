@@ -3,7 +3,7 @@
         <table class="table table-hover table-inverse">
           <tbody>
             <tr>
-              <th><%= attachment_image_tag @user, :profile_image, :fill, 80, 80, class: "pull-left profile-thumb", fallback: "no_image.jpg" , size:'80x80' %></th>
+              <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "pull-left profile-thumb", fallback: "no_image.jpg" , size:'100x100' %></th>
               <th></th>
             </tr>
             <tr>
@@ -23,18 +23,19 @@
         </div>
         <h2>New book</h2>
         <!-- form_for部分 -->
-        <%= form_for(@book, url: "/books/#{@user.id}") do |f| %>
+        <%= form_for(@book, url: "/books/") do |f| %>
 
-            <div class="field">
-                <%= f.label :title, :class => 'book_title' %><br>
-                <%= f.text_field :title, :class => 'book_title' %>
-            </div>
-            <div class="field">
-                <%= f.label :opinion, :class => 'book_body' %><br>
-                <%= f.text_area :body, :class => 'book_body' %>
-            </div>
             <%= f.hidden_field :user_id, :value => @user.id %>
-            <div class="actions">
+
+            <div class="form-group field row">
+                <%= f.label :title, :class => 'book_title' %><br>
+                <%= f.text_field :title, :class => 'book_title form-control', autocomplete: 'off' %>
+            </div>
+            <div class="form-group field row">
+                <%= f.label :opinion, :class => 'book_body' %><br>
+                <%= f.text_area :body, :class => 'book_body form-control', autocomplete: 'off' %>
+            </div>
+            <div class="actions row">
                 <%= f.submit 'Create Book', :class => 'btn btn-primary btn-block' %>
             </div>
 
