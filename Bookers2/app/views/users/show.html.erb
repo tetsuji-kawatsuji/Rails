@@ -19,10 +19,6 @@
                 <% if book.user_id = @user.id %>
                   <td><%= book.title %></td>
                   <td><%= book.body %></td>
-                  <td><%= book.user_id %></td>
-                  <td><%= params[:id] %></td>
-                  <td><%= User.find_by(id: book.user_id).id %></td>
-                  <td><%= @user.id %></td>
                 <% end %>
               </tr>
             <% end %>
