@@ -20,18 +20,16 @@
             <% @books.each do |book| %>
               <% if book.user_id == @user.id %>
                 <tr>
-                  <td><%= attachment_image_tag @user, :profile_image, :fill, 80, 80, class: "pull-left profile-thumb", fallback: "no_image.jpg" , size:'80x80' %></td>
+                  <td><%= link_to user_path(book.user_id) do %>
+                    <%= attachment_image_tag User.find_by(id: book.user_id), :profile_image, :fill, 40, 40, class: "pull-left profile-thumb", fallback: "no_image.jpg" , size:'40x40' %>
+                    <br><br>
+                    <%= User.find_by(id: book.user_id).name %>
+                  <% end %></td>
                   <td><%= book.title %></td>
                   <td><%= book.body %></td>
                   <td><%= link_to "Edit", edit_book_path(book.id), :class => "edit_#{book.id} btn btn-success"  %></td>
                   <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are You Sure?", :class => "destroy_#{book.id} btn btn-danger" %></td>
                 </tr>
-                <tr>
-                  <td><%= link_to User.find_by(id: book.user_id).name, user_path(book.user_id), :class => "show_#{book.user_id}" %></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
               <% end %>
             <% end %>
