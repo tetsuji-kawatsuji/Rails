@@ -1,13 +1,12 @@
 class BooksController < ApplicationController
 
-    before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
+    before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create, :index, :show]
 
     def top
-
+      @user = current_user
     end
 
     def about
-
     end
 
     def create

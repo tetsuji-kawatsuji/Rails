@@ -12,11 +12,19 @@
             <div class="btn-wrapper">
                 <div class="row" style="margin-left:35px">
                     <span class="btn btn-info btn-block text-muted sign_in">
-                        <%= link_to "Login", new_user_session_path %></span>
+                    <% if user_signed_in? %>
+                        <%= link_to "Log in", user_path(@user.id) %></span>
+                    <% else %>
+                        <%= link_to "Log in", new_user_session_path %></span>
+                    <% end %>
                 </div>
                 <div class="row" style="margin-left:35px">
                     <span class="btn btn-success btn-block text-muted sign_up">
+                    <% if user_signed_in? %>
+                        <%= link_to "Sign up", user_path(@user.id) %></span>
+                    <% else %>
                         <%= link_to "Sign up", new_user_registration_path %></span>
+                    <% end %>
                 </div>
             </div>
         </div>

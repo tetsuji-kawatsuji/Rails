@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create, :index, :show]
 
   def top
   end
@@ -32,8 +32,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
     @book = Book.new(book_params)
+    if current_user
+        @user = current_user
+        render action: 'edit'
+      else
+        redirect_to user_path
+      end
   end
 
   def update
